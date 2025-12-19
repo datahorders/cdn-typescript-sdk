@@ -1,0 +1,71 @@
+{
+  "name": "@datahorders/cdn-sdk",
+  "version": "1.0.0",
+  "description": "Official TypeScript SDK for the DataHorders CDN API",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "datahorders",
+    "cdn",
+    "api",
+    "sdk",
+    "typescript",
+    "ssl",
+    "tls",
+    "certificates",
+    "waf",
+    "web-application-firewall",
+    "load-balancer",
+    "reverse-proxy"
+  ],
+  "author": "DataHorders",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.zenterprise.org/datahorders/wiki.datahorders.org.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.zenterprise.org/datahorders/wiki.datahorders.org/issues"
+  },
+  "homepage": "https://wiki.datahorders.org/api",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.4"
+  }
+}
