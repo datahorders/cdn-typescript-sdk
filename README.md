@@ -503,5 +503,5 @@ MIT License - see LICENSE file for details.
 
 ## Support
 
-- [Documentation](https://wiki.datahorders.org/api) 
+- [Documentation](https://wiki.datahorders.org/docs/api/overview)
 - [Issues](https://github.com/datahorders/cdn-typescript-sdk/issues)
