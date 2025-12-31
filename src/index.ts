@@ -192,9 +192,9 @@ class HttpClient {
         return response.blob() as unknown as T;
       }
 
-      const data = await response.json();
+      const data = (await response.json()) as ApiResponse<T> | ApiErrorResponse;
 
-      if (!response.ok || data.success === false) {
+      if (!response.ok || !data.success) {
         const errorResponse = data as ApiErrorResponse;
         const error = typeof errorResponse.error === 'string'
           ? { code: 'API_ERROR', message: errorResponse.error }
@@ -326,7 +326,7 @@ class DomainsApi {
       perPage: params?.perPage,
       verified: params?.verified?.toString(),
     });
-    return { data: response.data, meta: response.meta! };
+    return { data: response.data, meta: response.meta ?? { total: response.data.length, page: 1, perPage: response.data.length, totalPages: 1 } };
   }
 
   /**
@@ -377,7 +377,7 @@ class ZonesApi {
       perPage: params?.perPage,
       domain: params?.domain,
     });
-    return { data: response.data, meta: response.meta! };
+    return { data: response.data, meta: response.meta ?? { total: response.data.length, page: 1, perPage: response.data.length, totalPages: 1 } };
   }
 
   /**
@@ -487,7 +487,7 @@ class CertificatesApi {
       perPage: params?.perPage,
       status: params?.status,
     });
-    return { data: response.data, meta: response.meta! };
+    return { data: response.data, meta: response.meta ?? { total: response.data.length, page: 1, perPage: response.data.length, totalPages: 1 } };
   }
 
   /**
@@ -686,7 +686,7 @@ class WafRulesApi {
       page: params?.page,
       perPage: params?.perPage,
     });
-    return { data: response.data, meta: response.meta! };
+    return { data: response.data, meta: response.meta ?? { total: response.data.length, page: 1, perPage: response.data.length, totalPages: 1 } };
   }
 
   /**
@@ -737,7 +737,7 @@ class WafIpListsApi {
       page: params?.page,
       perPage: params?.perPage,
     });
-    return { data: response.data, meta: response.meta! };
+    return { data: response.data, meta: response.meta ?? { total: response.data.length, page: 1, perPage: response.data.length, totalPages: 1 } };
   }
 
   /**

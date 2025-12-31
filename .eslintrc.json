@@ -26,5 +26,5 @@
     "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/strict-boolean-expressions": "off"
   },
-  "ignorePatterns": ["dist", "node_modules", "*.js", "*.mjs"]
+  "ignorePatterns": ["dist", "node_modules", "*.js", "*.mjs", "*.test.ts", "*.spec.ts"]
 }
