@@ -48,10 +48,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.zenterprise.org/datahorders/wiki.datahorders.org.git"
+    "url": "https://github.com/datahorders/cdn-typescript-sdk.git"
   },
   "bugs": {
-    "url": "https://gitlab.zenterprise.org/datahorders/wiki.datahorders.org/issues"
+    "url": "https://github.com/datahorders/cdn-typescript-sdk/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://wiki.datahorders.org/api",
   "engines": {
