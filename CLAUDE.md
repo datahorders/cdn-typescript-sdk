@@ -19,18 +19,22 @@ This package is published to npm as `@datahorders/cdn-sdk`.
 
 ### Token Lifetime Issue
 
-npm granular access tokens have a maximum 90-day lifetime. Options to handle this:
+npm granular access tokens have a maximum 90-day lifetime. Classic automation tokens have been disabled by npm.
 
-1. **Calendar reminder** - Set a reminder to rotate the token before expiration
-2. **Use classic Automation token** - These don't expire but have broader permissions
-3. **GitHub Actions workflow** - Could potentially create a workflow that alerts when token is near expiry (would need npm API access)
+**Current token expires:** ~March 31, 2025 (created Dec 31, 2024)
+
+**Workaround:** Set a calendar reminder to rotate before expiration.
 
 To rotate the token:
-```bash
-# Generate new token at https://www.npmjs.com/settings/YOUR_USERNAME/tokens
-# Then update the secret:
-gh secret set NPM_TOKEN --body "npm_NEW_TOKEN_HERE"
-```
+1. Generate new token at https://www.npmjs.com/settings/datahorders/tokens
+   - Type: Granular Access Token
+   - Packages: `@datahorders/cdn-sdk` (read/write)
+   - Enable "Bypass 2FA for automation"
+2. Update the GitHub secret:
+   ```bash
+   cd /Volumes/Git\ Projects/github/cdn-typescript-sdk
+   gh secret set NPM_TOKEN --body "npm_NEW_TOKEN_HERE"
+   ```
 
 ## Build Commands
 
